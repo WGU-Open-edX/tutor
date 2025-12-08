@@ -33,6 +33,21 @@ configMapGenerator:
   options:
     labels:
         app.kubernetes.io/name: caddy
+- name: openedx-uwsgi-config
+  files:
+  - apps/openedx/uwsgi.ini
+  options:
+    labels:
+        app.kubernetes.io/name: openedx
+- name: redis-config
+  files:
+  - apps/redis/redis.conf
+  options:
+    labels:
+        app.kubernetes.io/name: redis
+{{ patch("kustomization-configmapgenerator") }}
+
+secretGenerator:
 - name: openedx-settings-lms
   files:{% for file in "apps/openedx/settings/lms"|walk_templates %}
   - {{ file }}{% endfor %}
@@ -51,19 +66,7 @@ configMapGenerator:
   options:
     labels:
         app.kubernetes.io/name: openedx
-- name: openedx-uwsgi-config
-  files:
-  - apps/openedx/uwsgi.ini
-  options:
-    labels:
-        app.kubernetes.io/name: openedx
-- name: redis-config
-  files:
-  - apps/redis/redis.conf
-  options:
-    labels:
-        app.kubernetes.io/name: redis
-{{ patch("kustomization-configmapgenerator") }}
+{{ patch("kustomization-secretgenerator") }}
 
 {%- if patch("k8s-override") or patch("kustomization-patches-strategic-merge") %}
 patchesStrategicMerge:

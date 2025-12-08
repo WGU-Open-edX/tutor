@@ -105,14 +105,14 @@ spec:
             allowPrivilegeEscalation: false
       volumes:
         - name: settings-lms
-          configMap:
-            name: openedx-settings-lms
+          secret:
+            secretName: openedx-settings-lms
         - name: settings-cms
-          configMap:
-            name: openedx-settings-cms
+          secret:
+            secretName: openedx-settings-cms
         - name: config
-          configMap:
-            name: openedx-config
+          secret:
+            secretName: openedx-config
         - name: uwsgi-config
           configMap:
             name: openedx-uwsgi-config
@@ -160,14 +160,14 @@ spec:
             allowPrivilegeEscalation: false
       volumes:
         - name: settings-lms
-          configMap:
-            name: openedx-settings-lms
+          secret:
+            secretName: openedx-settings-lms
         - name: settings-cms
-          configMap:
-            name: openedx-settings-cms
+          secret:
+            secretName: openedx-settings-cms
         - name: config
-          configMap:
-            name: openedx-config
+          secret:
+            secretName: openedx-config
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -216,14 +216,14 @@ spec:
             allowPrivilegeEscalation: false
       volumes:
         - name: settings-lms
-          configMap:
-            name: openedx-settings-lms
+          secret:
+            secretName: openedx-settings-lms
         - name: settings-cms
-          configMap:
-            name: openedx-settings-cms
+          secret:
+            secretName: openedx-settings-cms
         - name: config
-          configMap:
-            name: openedx-config
+          secret:
+            secretName: openedx-config
         - name: uwsgi-config
           configMap:
             name: openedx-uwsgi-config
@@ -270,14 +270,14 @@ spec:
             allowPrivilegeEscalation: false
       volumes:
         - name: settings-lms
-          configMap:
-            name: openedx-settings-lms
+          secret:
+            secretName: openedx-settings-lms
         - name: settings-cms
-          configMap:
-            name: openedx-settings-cms
+          secret:
+            secretName: openedx-settings-cms
         - name: config
-          configMap:
-            name: openedx-config
+          secret:
+            secretName: openedx-config
 {% if RUN_MEILISEARCH %}
 ---
 apiVersion: apps/v1

@@ -26,14 +26,14 @@ spec:
             name: config
       volumes:
       - name: settings-lms
-        configMap:
-          name: openedx-settings-lms
+        secret:
+          secretName: openedx-settings-lms
       - name: settings-cms
-        configMap:
-          name: openedx-settings-cms
+        secret:
+          secretName: openedx-settings-cms
       - name: config
-        configMap:
-          name: openedx-config
+        secret:
+          secretName: openedx-config
 ---
 apiVersion: batch/v1
 kind: Job
@@ -62,14 +62,14 @@ spec:
             name: config
       volumes:
       - name: settings-lms
-        configMap:
-          name: openedx-settings-lms
+        secret:
+          secretName: openedx-settings-lms
       - name: settings-cms
-        configMap:
-          name: openedx-settings-cms
+        secret:
+          secretName: openedx-settings-cms
       - name: config
-        configMap:
-          name: openedx-config
+        secret:
+          secretName: openedx-config
 ---
 apiVersion: batch/v1
 kind: Job

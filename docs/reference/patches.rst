@@ -145,6 +145,13 @@ File: ``kustomization.yml``
 
 File: ``kustomization.yml``
 
+.. patch:: kustomization-secretgenerator
+
+``kustomization-secretgenerator``
+====================================
+
+File: ``kustomization.yml``
+
 .. patch:: kustomization-patches-strategic-merge
 
 ``kustomization-patches-strategic-merge``
