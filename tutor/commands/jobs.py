@@ -540,6 +540,8 @@ def do_callback(service_commands: t.Iterable[tuple[str, str]]) -> None:
         runner.run_task_from_str(service, command)
 
 
+from tutor.commands.testdata_jobs import populatetestdata, cleartestdata
+
 hooks.Filters.CLI_DO_COMMANDS.add_items(
     [
         convert_mysql_utf8mb4_charset,
@@ -551,5 +553,7 @@ hooks.Filters.CLI_DO_COMMANDS.add_items(
         settheme,
         sqlshell,
         update_mysql_authentication_plugin,
+        populatetestdata,
+        cleartestdata,
     ]
 )
